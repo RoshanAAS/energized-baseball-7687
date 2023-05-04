@@ -9,6 +9,8 @@ function App() {
     <Navbar />
     {/* <Calculator/> */}
     <MainRoutes />
+    <br />
+
     <Footer />
   </div>;
 }
