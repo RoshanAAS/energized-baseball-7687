@@ -289,14 +289,10 @@ const NAV_ITEMS = [
     label: "Learn",
     children: [
       {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
+        label: "Evaluate Gold Loan",
       },
       {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
+        label: "Evaluate Home Loan",
       },
     ],
   },
@@ -304,14 +300,10 @@ const NAV_ITEMS = [
     label: "Tech",
     children: [
       {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
+        label: "Mobile Banking",
       },
       {
         label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
       },
     ],
   },
@@ -332,7 +324,6 @@ const NAV_ITEMS = [
 const DIV = styled.div`
   align-items: center;
   width: 100%;
-  /* border: 1px solid red; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 `;
