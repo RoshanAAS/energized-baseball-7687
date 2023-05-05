@@ -82,7 +82,7 @@ export default function SignupCard() {
             Sign up
           </Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
+            to explore <Link color={"blue.400"}>Us</Link> ✌️
           </Text>
         </Stack>
         <Box

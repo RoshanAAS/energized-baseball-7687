@@ -22,18 +22,16 @@ import {
 } from "firebase/auth";
 import { auth } from "../../../config/firebase";
 import { userLogin, userLogout } from "../../../redux/authreducer/action";
-import Googlelogin from "./Googlelogin";
 export default function SigninCard() {
   const [emptyInputError, setEmptyInputError] = useState(false);
   const { isAuth, userName } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
-  // const {isAuth}=useSelector(())
   const toast = useToast();
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPass, setLoginPass] = useState("");
   const [load, setLoad] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  console.log(isAuth);
+
   const handleLogin = async () => {
     if (!loginEmail || !loginPass) {
       setEmptyInputError(true);
@@ -79,7 +77,7 @@ export default function SigninCard() {
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Sign in to your account</Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool <Link color={"blue.400"}>features</Link> ✌️
+            to explore us <Link color={"blue.400"}>More</Link> ✌️
           </Text>
         </Stack>
         <Box
@@ -124,7 +122,6 @@ export default function SigninCard() {
               >
                 Sign in
               </Button>
-              <Googlelogin />
             </Stack>
           </Stack>
         </Box>
