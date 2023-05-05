@@ -25,6 +25,9 @@ import {
 
 import Logo from "../Logo/BusyKids.png";
 import styled from "@emotion/styled";
+import { NavLink } from 'react-router-dom';
+
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -80,7 +83,9 @@ export default function Navbar() {
                             padding : '10px',
                             WebkitBorderRadius : '10px'
                         }} /> */}
+            <NavLink to={'/'}>
             <Image src={Logo} alt="logo" w={"55%"} h={"auto"} />
+            </NavLink>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -88,33 +93,44 @@ export default function Navbar() {
           </Flex>
         </Flex>
 
-        {/* <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={'flex-end'}
-                    direction={'row'}
-                    spacing={6}>
-                    <Button
-                        as={'a'}
-                        fontSize={'sm'}
-                        fontWeight={400}
-                        variant={'link'}
-                        href={'#'}>
-                        Sign In
-                    </Button>
-                    <Button
-                        as={'a'}
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
-                        fontWeight={600}
-                        color={'white'}
-                        bg={'pink.400'}
-                        href={'#'}
-                        _hover={{
-                            bg: 'pink.300',
-                        }}>
-                        Sign Up
-                    </Button>
-                </Stack> */}
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={'flex-end'}
+          direction={'row'}
+          spacing={6}>
+          <NavLink to={'/signin'}>
+          <Button
+              as={'a'}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'black'}
+              bg={'none'}
+              href={'#'}
+              _hover={{
+                bg: '#f54f48',
+                color : 'white'
+              }}>
+              Sign In
+            </Button>
+          </NavLink>
+          <NavLink to={'/signup'}>
+            <Button
+              as={'a'}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'white'}
+              bg={'#f54f48'}
+              href={'#'}
+              _hover={{
+                // bg: '#f54f48',
+                color : 'black'
+              }}>
+              Sign Up
+            </Button>
+          </NavLink>
+        </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -289,14 +305,14 @@ const NAV_ITEMS = [
     label: "Learn",
     children: [
       {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
+        label: "Evaluate Gold Loan",
+      },
+      {
+        label: "Evaluate Home Loan",    
       },
       {
         label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
+        
       },
     ],
   },
@@ -304,14 +320,10 @@ const NAV_ITEMS = [
     label: "Tech",
     children: [
       {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
+        label: "Mobile Banking",
       },
       {
         label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
       },
     ],
   },
@@ -332,7 +344,6 @@ const NAV_ITEMS = [
 const DIV = styled.div`
   align-items: center;
   width: 100%;
-  /* border: 1px solid red; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 `;
