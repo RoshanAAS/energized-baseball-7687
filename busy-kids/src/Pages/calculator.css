@@ -1,0 +1,76 @@
+.App {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    margin-top: 0;
+    font-weight: 800;
+    color: #2f3640;
+    font-size: 25px;
+  }
+  
+  label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 16px;
+    color: #2f3640;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dcdde1;
+    margin-top: 10px;
+    border-radius: 4px;
+    width: 300px;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #0984e3;
+  }
+  
+  button {
+    font-size: 16px;
+    color: black;
+    font-weight: 550;
+    border: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s ease-in-out;
+  }
+ 
+  
+  div.result {
+    margin-top: 40px;
+    font-size: 20px;
+    color: #2f3640;
+  }
+  
+  div.result span {
+    font-weight: 500;
+    color: #0984e3;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    label {
+      display: block;
+      text-align: left;
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  
+    input {
+      width: 100%;
+    }
+  }
+  
