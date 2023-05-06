@@ -22,6 +22,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../../config/firebase";
 import { userLogin, userLogout } from "../../../redux/authreducer/action";
+import Googlelogin from "./Googlelogin";
 export default function SigninCard() {
   const [emptyInputError, setEmptyInputError] = useState(false);
   const { isAuth, userName } = useSelector((state) => state.authReducer);
@@ -122,6 +123,7 @@ export default function SigninCard() {
               >
                 Sign in
               </Button>
+              <Googlelogin />
             </Stack>
           </Stack>
         </Box>
