@@ -25,12 +25,34 @@ import {
 
 import Logo from "../Logo/BusyKids.png";
 import styled from "@emotion/styled";
-import { NavLink } from 'react-router-dom';
-
+import { NavLink } from "react-router-dom";
+import SignInModal from "./authcom/signin/SigninModal";
+import SignUpModal from "./authcom/signup/SignupModal";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../config/firebase";
+import { signOut } from "firebase/auth";
+import { userLogout, userStatusUpdate } from "../redux/authreducer/action";
+import { useEffect } from "react";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const dispatch = useDispatch();
+  const { isAuth, userName } = useSelector((state) => state.authReducer);
 
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(userStatusUpdate(user.displayName));
+      } else {
+        dispatch(userLogout());
+      }
+    });
+  }, []);
+
+  const handleLogout = async () => {
+    dispatch(userLogout());
+    await signOut(auth);
+  };
   return (
     <DIV>
       <Flex
@@ -83,8 +105,10 @@ export default function Navbar() {
                             padding : '10px',
                             WebkitBorderRadius : '10px'
                         }} /> */}
+
                         {/*  w={"100%"} h={"59"}  */}
             <Image src={Logo} alt="logo" w={"100%"} h={"59"} />
+
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -94,41 +118,66 @@ export default function Navbar() {
 
         <Stack
           flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}>
-          <NavLink to={'/signin'}>
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
+          {/* <NavLink to={'/signin'}> */}
+
           <Button
-              as={'a'}
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
-              fontWeight={600}
-              color={'black'}
-              bg={'none'}
-              href={'#'}
-              _hover={{
-                bg: '#f54f48',
-                color : 'white'
-              }}>
-              Sign In
-            </Button>
-          </NavLink>
-          <NavLink to={'/signup'}>
+            as={"a"}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color={"black"}
+            bg={"none"}
+            href={"#"}
+            _hover={{
+              bg: "#f54f48",
+              color: "white",
+            }}
+          >
+            {isAuth ? <Text>{userName}</Text> : <SignInModal />}
+          </Button>
+
+          {/* </NavLink> */}
+          {/* <NavLink to={"/signup"}> */}
+          {isAuth ? (
             <Button
-              as={'a'}
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
               fontWeight={600}
-              color={'white'}
-              bg={'#f54f48'}
-              href={'#'}
+              color={"black"}
+              bg={"none"}
+              href={"#"}
               _hover={{
-                // bg: '#f54f48',
-                color : 'black'
-              }}>
-              Sign Up
+                bg: "#f54f48",
+                color: "white",
+              }}
+              onClick={handleLogout}
+            >
+              Logout
             </Button>
-          </NavLink>
+          ) : (
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"black"}
+              bg={"none"}
+              href={"#"}
+              _hover={{
+                bg: "#f54f48",
+                color: "white",
+              }}
+            >
+              <SignUpModal />
+            </Button>
+          )}
+
+          {/* </NavLink> */}
         </Stack>
       </Flex>
 
@@ -307,11 +356,10 @@ const NAV_ITEMS = [
         label: "Evaluate Gold Loan",
       },
       {
-        label: "Evaluate Home Loan",    
+        label: "Evaluate Home Loan",
       },
       {
         label: "New & Noteworthy",
-        
       },
     ],
   },
