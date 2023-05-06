@@ -38,7 +38,7 @@ import styled from '@emotion/styled';
 // : 
 // "097"
   
-  const   TeacherCard=({description,name,image,rating,role,location,experience})=> {
+  const   TeacherCard=({description,name,image,rating,role,location,experience,status})=> {
     return (
       <DIV>
       <Center py={6}>
@@ -101,7 +101,7 @@ import styled from '@emotion/styled';
                 transform: 'translateY(-2px)',
                 boxShadow: 'lg',
               }}>
-              Follow
+              {status?'Hired':"Hire"}
             </Button>
           </Box>
         </Box>

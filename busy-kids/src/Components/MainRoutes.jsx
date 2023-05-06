@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import About from "../Pages/About";
 import SignupCard from "./authcom/signup/Signup";
 import SigninCard from "./authcom/signin/SigninCard";
+import { Hire } from "../Pages/Hire";
 
 const MainRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const MainRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path='/signin' element={<SigninCard />} />
       <Route path='/signup' element={<SignupCard />} />
+      <Route path='/hire' element={<Hire/>} />
     </Routes>
   );
 };

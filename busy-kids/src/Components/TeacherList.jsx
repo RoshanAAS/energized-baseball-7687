@@ -12,7 +12,7 @@ const TeacherList = () => {
 
   const paramObj = {
     params: {
-      _limit: 15,
+      _limit: 12,
     },
   };
 
