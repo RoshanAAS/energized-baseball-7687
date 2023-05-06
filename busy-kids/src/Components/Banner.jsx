@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import React from "react";
 import logo from "../Logo/BusyKids.png";
 import styled from "@emotion/styled";
