@@ -41,7 +41,7 @@ const Banner = () => {
           <Box>
             <iframe
               width="100%"
-              height="100%"
+              height="400"
               src={`https://www.youtube.com/embed/d-mKp1qZjek`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
