@@ -36,7 +36,7 @@ export default function Navbar() {
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"40px"}
+        // minH={"40px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         w={"100%"}
@@ -83,9 +83,8 @@ export default function Navbar() {
                             padding : '10px',
                             WebkitBorderRadius : '10px'
                         }} /> */}
-            <NavLink to={'/'}>
-            <Image src={Logo} alt="logo" w={"55%"} h={"auto"} />
-            </NavLink>
+                        {/*  w={"100%"} h={"59"}  */}
+            <Image src={Logo} alt="logo" w={"100%"} h={"59"} />
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -346,4 +345,10 @@ const DIV = styled.div`
   width: 100%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 10;
 `;
