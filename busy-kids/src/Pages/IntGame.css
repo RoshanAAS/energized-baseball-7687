@@ -1,0 +1,66 @@
+.IntGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    }
+    
+    .IntGame h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    }
+    
+    .IntGame p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    }
+    
+    .IntGame h2 {
+    font-size: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    }
+    
+    .IntGame form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .IntGame input {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    }
+    
+    .IntGame .btn {
+    font-size: 1.5rem;
+    padding: 0.5rem 0.3rem;
+    margin: 1rem 0;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    .IntGame .message {
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: bold;
+    }
+    
+    .IntGame .correct {
+    color: green;
+    }
+    
+    .IntGame .incorrect {
+    color: red;
+    }
