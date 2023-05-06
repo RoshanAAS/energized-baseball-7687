@@ -1,0 +1,85 @@
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  .game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    margin: 50px auto;
+  }
+  
+  .game-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .answer-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .number-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .number-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .ans-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    width: 120px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ans-button:hover {
+    background-color: #0069d9;
+  }
+  
+  .score {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .answer-message {
+    font-size: 18px;
+    margin-top: 20px;
+  }
