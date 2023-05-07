@@ -71,7 +71,7 @@ export const HomeLoanPage = () => {
         <p>Processing fee: 0.25% - 2% of the loan amount</p>
      
     </div>
-    <div class="calculator-container-home">
+    <div className="calculator-container-home">
    
    <h2>Home Loan Calculator</h2>
   <Calculator className="calculator" />

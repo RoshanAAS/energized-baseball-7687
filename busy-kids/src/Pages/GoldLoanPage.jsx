@@ -72,7 +72,7 @@ export const GoldLoanPage = () => {
         <li>Processing fee: 0.5% - 2% of the loan amount</li>
       </ul>
     </div>
-    <div class="calculator-container-gold">
+    <div className="calculator-container-gold">
    
    <h2>Gold Loan Calculator</h2>
   <Calculator className="calculator" />

@@ -150,3 +150,53 @@
   margin-right: -55rem;
  
 }
+
+
+
+@media screen and (max-width: 768px) {
+  .car-loan-page {
+  flex-direction: column;
+  margin-top: 30px;
+  }
+  
+  .car-loan-info,
+  .calculator-container {
+  width: 90%;
+  margin-left: 5%;
+  }
+  
+  .car-loan-info::before,
+  .calculator-container::before {
+  background-size: 70%;
+  }
+  
+  .calculator-container::before {
+  background-position: top;
+  }
+  
+  .calculator {
+  margin-top: 50px;
+  }
+  
+  .int-loan,
+  .int-info,
+  .int-fee {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0;
+  }
+  
+  .int-loan p,
+  .int-info p,
+  .int-fee p {
+  margin-bottom: 1rem;
+  }
+  
+  .image-loan,
+  .image-interest,
+  .image-fees {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 1rem;
+  }
+  }

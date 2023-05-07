@@ -46,15 +46,7 @@ export const Game = () => {
               </Button>
             ))}
           </div>
-          <div className="d-flex justify-content-between">
-            {[...Array(10).keys()].map(num => (
-              <Button key={num} variant="primary" onClick={() => {
-                document.getElementById("answer").value += num;
-              }} className="number-button">
-                {num + 10}
-              </Button>
-            ))}
-          </div>
+          
           <Button variant="primary" onClick={() => handleAnswer()} className="ans-button">
             Submit
           </Button>

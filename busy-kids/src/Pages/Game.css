@@ -46,14 +46,14 @@ body {
     height: 70px;
     border-radius: 50%;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #f54f48;
     color: #fff;
     border: none;
     transition: background-color 0.3s ease;
   }
   
   .number-button:hover {
-    background-color: #3e8e41;
+    background-color: #818688;
   }
   
   .ans-button {
@@ -64,14 +64,14 @@ body {
     height: 80px;
     border-radius: 50%;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #f54f48;
     color: #fff;
     border: none;
     transition: background-color 0.3s ease;
   }
   
   .ans-button:hover {
-    background-color: #0069d9;
+    background-color: #818688;
   }
   
   .score {
@@ -83,3 +83,53 @@ body {
     font-size: 18px;
     margin-top: 20px;
   }
+
+
+
+  @media screen and (max-width: 600px) {
+    .game-container {
+      width: 90%;
+    }
+  
+    .game-title {
+      font-size: 24px;
+    }
+  
+    .question {
+      font-size: 20px;
+    }
+  
+    .answer-input {
+      font-size: 14px;
+    }
+  
+    .number-button {
+      font-size: 20px;
+      width: 70px;
+      height: 70px;
+    }
+  
+    .number-button:last-child {
+      margin-right: 0;
+    }
+  
+    .ans-button {
+      font-size: 16px;
+      width: 120px;
+      height: 60px;
+    }
+  
+    .ans-button:last-child {
+      margin-right: 0;
+    }
+  
+    .score {
+      font-size: 16px;
+    }
+  
+    .answer-message {
+      font-size: 16px;
+    }
+  }
+  
+  

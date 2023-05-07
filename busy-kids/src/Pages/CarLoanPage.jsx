@@ -1,9 +1,9 @@
 import React from 'react';
 import "./CarLoanPage.css";
-import { Calculator } from '../Components/calculator';
 import LoanGif from "../images/loan-gif.gif";
 import IntGif from "../images/interest-gif.gif"
 import PfeeGif from "../images/processing-fees-gif.gif";
+import { Calculator } from '../Components/calculator';
 
 export const CarLoanPage = () => {
   return (
@@ -58,8 +58,8 @@ export const CarLoanPage = () => {
 </div>
 
 
-    <div class="car-loan-page">
-  <div class="car-loan-info">
+    <div className="car-loan-page">
+  <div className="car-loan-info">
     <h1>Car Loan</h1>
     <p>Car loans are used to purchase a new or used car.</p>
     <p>These loans are secured loans that are given against the car that is being purchased.</p>
@@ -71,10 +71,10 @@ export const CarLoanPage = () => {
     </ul>
   </div>
  
-  <div class="calculator-container">
+  <div className="calculator-container">
    
     <h2>Car Loan Calculator</h2>
-   <Calculator className="calculator" />
+    <Calculator className="calculator" />
   </div>
 </div>
 
