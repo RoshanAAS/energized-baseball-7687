@@ -1,4 +1,4 @@
-import { GET_TEACHER_FAILURE, GET_TEACHER_REQUEST, GET_TEACHER_SUCCESS } from "./actionType"
+import { GET_TEACHER_FAILURE, GET_TEACHER_REQUEST, GET_TEACHER_SUCCESS, POST_HEIRE_STATUS } from "./actionType"
 
 
 
@@ -20,6 +20,18 @@ const initState={
            }
            case GET_TEACHER_FAILURE:{
                return {...state,isError:true,isLoading:false}
+           }
+           case POST_HEIRE_STATUS:{
+               let update=state.teacherData.map((el)=> {
+                  if(el.id===payload){
+                    return {...el,status:!el.status}
+                  }
+                  else{
+                    return el
+                  }
+               })
+
+               return {...state,teacherData:update}
            }
           default:{
             return state
