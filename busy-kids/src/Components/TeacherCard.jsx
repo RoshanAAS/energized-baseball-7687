@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import useRazorpay from "react-razorpay";
+import { useDispatch } from "react-redux";
+import { updateHire } from "../redux/hireReducer/action";
 
 //   description
 // :
@@ -41,16 +43,17 @@ import useRazorpay from "react-razorpay";
 // "097"
 
 const TeacherCard = ({
-  description,
   name,
   image,
   rating,
   role,
   location,
-  experience,
   status,
   id,
+ 
 }) => {
+
+  const  dispatch=useDispatch()
   const Razorpay = useRazorpay();
   const params = {
     price: 500000,
@@ -85,12 +88,14 @@ const TeacherCard = ({
         address: "Razorpay Corporate Office",
       },
       theme: {
-        color: "#3399cc",
+        color: "#f54f48",
       },
     };
 
     const rzpay = new Razorpay(options);
-    rzpay.open();
+    rzpay.open(
+      dispatch(updateHire({id,status}))
+    );
   }, [Razorpay]);
   return (
     <DIV>
@@ -99,7 +104,7 @@ const TeacherCard = ({
           maxW={"250px"}
           w={"full"}
           bg={useColorModeValue("white", "gray.800")}
-          boxShadow={"2xl"}
+          // boxShadow={"2xl"} 
           // rounded={'md'}
           overflow={"hidden"}
         >
@@ -132,15 +137,11 @@ const TeacherCard = ({
 
             <Stack direction={"row"} justify={"center"} spacing={6}>
               <Stack spacing={0} align={"center"}>
-                <Text fontWeight={600}>Rating: {rating}</Text>
-                {/* <Text fontSize={'sm'} color={'gray.500'}>
-                 {description}
-                </Text> */}
+                <Text fontWeight={'400'} textColor={'b'} color={"gray.500"}>Rating: {rating}</Text>
               </Stack>
               <Stack spacing={0} align={"center"}>
-                <Text fontWeight={600}>23k</Text>
-                <Text fontSize={"sm"} color={"gray.500"}>
-                  {location}
+                <Text fontSize={"sm"} textColor={'b'} color={"gray.500"}>
+                 {location}
                 </Text>
               </Stack>
             </Stack>
