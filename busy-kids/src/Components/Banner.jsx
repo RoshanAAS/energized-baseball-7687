@@ -30,8 +30,8 @@ const Banner = () => {
               THE VIRTUAL BANK FOR KIDS
             </Heading>
             <br />
-            <Text fontSize={"lg"} as={"sample"} lineHeight={7}>
-              Bankaroo is a virtual bank for kids, where you can teach them
+            <Text fontSize={"2xl"} as={"sample"} lineHeight={10}>
+              Busy Kids is a virtual bank for kids, where you can teach them
               about the value of money in a safe environment. Kids will learn
               how to budget, save up for goals and spend responsibly using our
               cool easy-to-use app and website, while teachers have control over
