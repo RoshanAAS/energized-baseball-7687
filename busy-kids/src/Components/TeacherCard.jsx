@@ -13,10 +13,10 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
+
 import useRazorpay from "react-razorpay";
 import { useDispatch } from "react-redux";
 import { updateHire } from "../redux/hireReducer/action";
-
 
 //   description
 // :
@@ -43,6 +43,11 @@ import { updateHire } from "../redux/hireReducer/action";
 // :
 // "097"
 
+
+const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 const TeacherCard = ({
   name,
   image,
@@ -56,6 +61,7 @@ const TeacherCard = ({
 
   const navigate = useNavigate();
   const dispatch = useDispatch()
+
   const Razorpay = useRazorpay();
   const params = {
     price: 500000,
@@ -96,9 +102,11 @@ const TeacherCard = ({
     };
 
     const rzpay = new Razorpay(options);
-    rzpay.open(
-      dispatch(updateHire({ id, status }))
-    );
+
+    rzpay.open(dispatch(updateHire({ id, status })));
+
+    
+
   }, [Razorpay]);
 
   return (
@@ -108,7 +116,7 @@ const TeacherCard = ({
           maxW={"250px"}
           w={"full"}
           bg={useColorModeValue("white", "gray.800")}
-          // boxShadow={"2xl"} 
+          // boxShadow={"2xl"}
           // rounded={'md'}
           overflow={"hidden"}
         >
@@ -141,10 +149,15 @@ const TeacherCard = ({
 
             <Stack direction={"row"} justify={"center"} spacing={6}>
               <Stack spacing={0} align={"center"}>
-                <Text fontWeight={'400'} textColor={'b'} color={"gray.500"}>Rating: {rating}</Text>
+                <Text fontWeight={"400"} textColor={"b"} color={"gray.500"}>
+                  Rating: {rating}
+                </Text>
               </Stack>
               <Stack spacing={0} align={"center"}>
+
+
                 <Text fontSize={"sm"} textColor={'b'} color={"gray.500"}>
+
                   {location}
                 </Text>
               </Stack>
