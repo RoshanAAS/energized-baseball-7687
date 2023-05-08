@@ -383,16 +383,26 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Play",
-    href: "/play-game",
+    label: "Games",
+    children: [
+      {
+        label: "Play Games",
+        href: "/play-game",
+      }
+    ]
   },
   {
-    label: "Hire",
-    href: "/hire",
+    label: "Team",
+    children: [
+      {
+        label: "Hire",
+        href: "/hire",
+      }
+    ]
   },
   {
     label: "About",
-    href: "#",
+    href: "/car-loan",
   },
 ];
 

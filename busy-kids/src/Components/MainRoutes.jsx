@@ -15,6 +15,7 @@ import { Game } from "../Pages/Game";
 import { Calculator } from "./calculator";
 import Checkoutpage from "../Pages/Checkoutpage";
 import PrivateRoute from "./PrivateRoute";
+import SigninCard from "./authcom/signin/SigninCard";
 
 const MainRoutes = () => {
   return (
@@ -23,7 +24,12 @@ const MainRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path='/signup' element={<SignUpModal />} />
       <Route path='/signin' element={<SignInModal />} />
-      <Route path='/hire' element={<Hire />} />
+      <Route path='/login' element={<SigninCard />} />
+      <Route path='/hire' element={
+        <PrivateRoute>
+          <Hire />
+        </PrivateRoute>
+      } />
       <Route path='/car-loan' element={<CarLoanPage />} />
       <Route path='/home-loan' element={<HomeLoanPage />} />
       <Route path='/gold-loan' element={<GoldLoanPage />} />
