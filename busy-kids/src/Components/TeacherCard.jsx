@@ -13,7 +13,6 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
-
 import useRazorpay from "react-razorpay";
 import { useDispatch } from "react-redux";
 import { updateHire } from "../redux/hireReducer/action";
@@ -52,11 +51,11 @@ const TeacherCard = ({
   location,
   status,
   id,
- 
+
 }) => {
 
   const navigate = useNavigate();
-  const  dispatch=useDispatch()
+  const dispatch = useDispatch()
   const Razorpay = useRazorpay();
   const params = {
     price: 500000,
@@ -97,7 +96,7 @@ const TeacherCard = ({
 
     const rzpay = new Razorpay(options);
     rzpay.open(
-      dispatch(updateHire({id,status}))
+      dispatch(updateHire({ id, status }))
     );
   }, [Razorpay]);
 
@@ -145,7 +144,7 @@ const TeacherCard = ({
               </Stack>
               <Stack spacing={0} align={"center"}>
                 <Text fontSize={"sm"} textColor={'b'} color={"gray.500"}>
-                 {location}
+                  {location}
                 </Text>
               </Stack>
             </Stack>
