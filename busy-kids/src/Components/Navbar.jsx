@@ -7,7 +7,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -16,6 +15,7 @@ import {
   useDisclosure,
   Image,
 } from "@chakra-ui/react";
+import {Link} from 'react-router-dom'
 import {
   HamburgerIcon,
   CloseIcon,
@@ -38,6 +38,7 @@ export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const dispatch = useDispatch();
   const { isAuth, userName } = useSelector((state) => state.authReducer);
+   
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -107,7 +108,7 @@ export default function Navbar() {
                         }} /> */}
 
             {/*  w={"100%"} h={"59"}  */}
-            <Image src={Logo} alt="logo" w={"100%"} h={"59"} />
+          <NavLink to={'/'}>  <Image  src={Logo} alt="logo" w={"100%"} h={"59"} /></NavLink>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -239,7 +240,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
-      href={href}
+      to={href}
       role={"group"}
       display={"block"}
       p={2}
@@ -330,7 +331,7 @@ const MobileNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}
@@ -351,6 +352,24 @@ const NAV_ITEMS = [
   {
     label: "Learn",
     children: [
+    {
+      label: "Learn Car Loan",
+      href: "/car-loan",
+    },
+    {
+      label: "Learn Gold Loan",
+      href: "/gold-loan",
+    },
+    {
+      label: "Learn Home Loan",
+      href: "/home-loan",
+    },
+    ],
+  },
+  
+  {
+    label: "Tech",
+    children: [
       {
         label: "Evaluate Gold Loan",
         href: "",
@@ -364,27 +383,26 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Tech",
+    label: "Games",
     children: [
       {
-        label: "Mobile Banking",
-      },
+        label: "Play Games",
+        href: "/play-game",
+      }
+    ]
+  },
+  {
+    label: "Team",
+    children: [
       {
-        label: "Freelance Projects",
-      },
-    ],
-  },
-  {
-    label: "Play",
-    href: "#",
-  },
-  {
-    label: "Resources",
-    href: "#",
+        label: "Hire",
+        href: "/hire",
+      }
+    ]
   },
   {
     label: "About",
-    href: "#",
+    href: "/car-loan",
   },
 ];
 

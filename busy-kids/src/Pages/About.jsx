@@ -60,7 +60,7 @@ const About = () => {
               width={"70%"}
               borderRadius={"50%"}
               src="https://avatars.githubusercontent.com/u/110104180?v=4"
-              alt="Reddy"
+               alt="Reddy"
             />
             <br />
             <Heading as="h2" size={"md"}>

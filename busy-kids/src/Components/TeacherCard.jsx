@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import {
@@ -43,9 +43,25 @@ import { updateHire } from "../redux/hireReducer/action";
 // :
 // "097"
 
+
 const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+const TeacherCard = ({
+  name,
+  image,
+  rating,
+  role,
+  location,
+  status,
+  id,
+
+}) => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+
   const Razorpay = useRazorpay();
   const params = {
     price: 500000,
@@ -81,11 +97,16 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
       },
       theme: {
         color: "#f54f48",
+        
       },
     };
 
     const rzpay = new Razorpay(options);
+
     rzpay.open(dispatch(updateHire({ id, status })));
+
+    
+
   }, [Razorpay]);
 
   return (
@@ -133,7 +154,10 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
                 </Text>
               </Stack>
               <Stack spacing={0} align={"center"}>
-                <Text fontSize={"sm"} textColor={"b"} color={"gray.500"}>
+
+
+                <Text fontSize={"sm"} textColor={'b'} color={"gray.500"}>
+
                   {location}
                 </Text>
               </Stack>
@@ -144,6 +168,7 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
               mt={8}
               bg={useColorModeValue("#f54f48", "gray.900")}
               color={"white"}
+              border = '0px'
               rounded={"md"}
               _hover={{
                 transform: "translateY(-2px)",
