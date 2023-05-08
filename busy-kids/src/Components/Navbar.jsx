@@ -38,6 +38,7 @@ export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const dispatch = useDispatch();
   const { isAuth, userName } = useSelector((state) => state.authReducer);
+   
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -107,7 +108,7 @@ export default function Navbar() {
                         }} /> */}
 
             {/*  w={"100%"} h={"59"}  */}
-            <Image src={Logo} alt="logo" w={"100%"} h={"59"} />
+          <NavLink to={'/'}>  <Image  src={Logo} alt="logo" w={"100%"} h={"59"} /></NavLink>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -386,8 +387,8 @@ const NAV_ITEMS = [
     href: "/play-game",
   },
   {
-    label: "Team",
-    href: "/team",
+    label: "Hire",
+    href: "/hire",
   },
   {
     label: "About",
