@@ -48,19 +48,6 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-const TeacherCard = ({
-  name,
-  image,
-  rating,
-  role,
-  location,
-  status,
-  id,
-
-}) => {
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch()
 
   const Razorpay = useRazorpay();
   const params = {
@@ -110,7 +97,7 @@ const TeacherCard = ({
   }, [Razorpay]);
 
   return (
-    <DIV>
+    <div>
       <Center py={6}>
         <Box
           maxW={"250px"}
@@ -183,17 +170,12 @@ const TeacherCard = ({
           </Box>
         </Box>
       </Center>
-    </DIV>
+    </div>
   );
-};
+}
 
-export default TeacherCard;
+export default TeacherCard
+ 
 
-const DIV = styled.div`
-  @media screen and (max-width: 480px) and (min-width: 200px) {
-    .sidebar {
-      width: 50%;
-      background-color: black;
-    }
-  }
-`;
+
+
