@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import "./Game.css";
+import { IntGame } from './IntGame';
 
 export const Game = () => {
   const [score, setScore] = useState(0);
@@ -26,6 +27,7 @@ export const Game = () => {
   }
 
   return (
+    <>
     <Container className="game-container">
       <Row className="justify-content-center">
         <h1 className="game-title">Study Game</h1>
@@ -60,5 +62,10 @@ export const Game = () => {
         </Col>
       </Row>
     </Container>
+      <br/>
+      <br/>
+
+         <IntGame/>
+    </>
   );
 }
