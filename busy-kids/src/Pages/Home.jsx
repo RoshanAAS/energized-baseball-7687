@@ -10,11 +10,14 @@ import {
   Text,
 } from "@chakra-ui/react";
 import About from "./About";
+import AutoPlay from "../Components/Carousel";
 
 const Home = () => {
   return (
     <div>
       <Banner />
+      <AutoPlay/>
+      <br/>
       <Heading color={"#f54f48"} as={"h1"} size={"xl"}>
         Teach
       </Heading>

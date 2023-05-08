@@ -13,7 +13,12 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
-import CheckoutModal from "../Pages/Checkoutmodal";
+
+import styled from "@emotion/styled";
+import useRazorpay from "react-razorpay";
+import { useDispatch } from "react-redux";
+import { updateHire } from "../redux/hireReducer/action";
+
 
 //   description
 // :
@@ -41,18 +46,62 @@ import CheckoutModal from "../Pages/Checkoutmodal";
 // "097"
 
 const TeacherCard = ({
-  description,
   name,
   image,
   rating,
   role,
   location,
-  experience,
   status,
   id,
+ 
 }) => {
+
   const navigate = useNavigate();
-  const [statuslocal, setStatus] = useState(true);
+  const  dispatch=useDispatch()
+  const Razorpay = useRazorpay();
+  const params = {
+    price: 500000,
+    name: name,
+    location,
+  };
+  const createOrder = (params) => {
+    // ...
+    return params;
+  };
+
+  const handlePayment = useCallback(async () => {
+    const order = await createOrder(params);
+    console.log(order);
+    const options = {
+      key: "rzp_test_Sd88VoR9NHci1p",
+      amount: order.price,
+      currency: "INR",
+      name: order.name,
+      description: "Test Transaction",
+      image: "https://example.com/your_logo",
+      order_id: order.id,
+      handler: (res) => {
+        console.log(res);
+      },
+      prefill: {
+        name: "Piyush Garg",
+        email: "youremail@example.com",
+        contact: "9999999999",
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#f54f48",
+      },
+    };
+
+    const rzpay = new Razorpay(options);
+    rzpay.open(
+      dispatch(updateHire({id,status}))
+    );
+  }, [Razorpay]);
+
   return (
     <DIV>
       <Center py={6}>
@@ -60,7 +109,7 @@ const TeacherCard = ({
           maxW={"250px"}
           w={"full"}
           bg={useColorModeValue("white", "gray.800")}
-          boxShadow={"2xl"}
+          // boxShadow={"2xl"} 
           // rounded={'md'}
           overflow={"hidden"}
         >
@@ -93,15 +142,11 @@ const TeacherCard = ({
 
             <Stack direction={"row"} justify={"center"} spacing={6}>
               <Stack spacing={0} align={"center"}>
-                <Text fontWeight={600}>Rating: {rating}</Text>
-                {/* <Text fontSize={'sm'} color={'gray.500'}>
-                 {description}
-                </Text> */}
+                <Text fontWeight={'400'} textColor={'b'} color={"gray.500"}>Rating: {rating}</Text>
               </Stack>
               <Stack spacing={0} align={"center"}>
-                <Text fontWeight={600}>23k</Text>
-                <Text fontSize={"sm"} color={"gray.500"}>
-                  {location}
+                <Text fontSize={"sm"} textColor={'b'} color={"gray.500"}>
+                 {location}
                 </Text>
               </Stack>
             </Stack>
