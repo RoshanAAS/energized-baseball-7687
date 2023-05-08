@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import { GET_TEACHER_FAILURE, GET_TEACHER_REQUEST, GET_TEACHER_SUCCESS, POST_HEIRE_STATUS } from './actionType'
 
@@ -22,3 +23,4 @@ import { GET_TEACHER_FAILURE, GET_TEACHER_REQUEST, GET_TEACHER_SUCCESS, POST_HEI
         dispatch({type:POST_HEIRE_STATUS,payload:id})
        })
   }
+

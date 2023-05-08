@@ -10,6 +10,11 @@ import {GoldLoanPage} from '../Pages/GoldLoanPage';
 import  SignUpModal from './authcom/signup/SignupModal'
 import SignInModal from './authcom/signin/SigninModal'
 import { Game } from "../Pages/Game";
+
+import Home from "../Pages/Home";
+import { Calculator } from "./calculator";
+import Checkoutpage from "../Pages/Checkoutpage";
+
 const MainRoutes = () => {
   return (
     <Routes>
@@ -22,7 +27,8 @@ const MainRoutes = () => {
       <Route path='/home-loan' element={<HomeLoanPage/>} />
       <Route path='/gold-loan' element={<GoldLoanPage/>} />
       <Route path='/play-game' element={<Game/>} />
-
+       <Route path="/checkout" element={<Checkoutpage />} />
+        <Route path="/caluculator" element={<Calculator />} />
     </Routes>
   );
 };

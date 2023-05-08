@@ -42,7 +42,7 @@ export default function Googlelogin() {
     }
   };
   return (
-    <Button onClick={handlegoogleLogin}>
+    <Button w={"100%"} border={"1px solid gray"} onClick={handlegoogleLogin}>
       {" "}
       <img
         src="https://tse3.mm.bing.net/th?id=OIP.Kg2FF2wpIK_HLyo8Q56ycAHaFj&pid=Api&P=0"

@@ -1,5 +1,6 @@
-import React, { useCallback } from "react";
-
+import React, { useCallback, useState } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import {
   Heading,
   Avatar,
@@ -12,10 +13,12 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
+
 import styled from "@emotion/styled";
 import useRazorpay from "react-razorpay";
 import { useDispatch } from "react-redux";
 import { updateHire } from "../redux/hireReducer/action";
+
 
 //   description
 // :
@@ -53,6 +56,7 @@ const TeacherCard = ({
  
 }) => {
 
+  const navigate = useNavigate();
   const  dispatch=useDispatch()
   const Razorpay = useRazorpay();
   const params = {
@@ -97,6 +101,7 @@ const TeacherCard = ({
       dispatch(updateHire({id,status}))
     );
   }, [Razorpay]);
+
   return (
     <DIV>
       <Center py={6}>
@@ -152,10 +157,12 @@ const TeacherCard = ({
               bg={useColorModeValue("#f54f48", "gray.900")}
               color={"white"}
               rounded={"md"}
-              onClick={handlePayment}
               _hover={{
                 transform: "translateY(-2px)",
                 boxShadow: "lg",
+              }}
+              onClick={() => {
+                navigate("/checkout");
               }}
             >
               {status ? "Hired" : "Hire"}
