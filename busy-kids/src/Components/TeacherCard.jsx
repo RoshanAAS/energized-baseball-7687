@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,7 +14,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import styled from "@emotion/styled";
 import useRazorpay from "react-razorpay";
 import { useDispatch } from "react-redux";
 import { updateHire } from "../redux/hireReducer/action";

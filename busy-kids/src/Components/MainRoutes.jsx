@@ -1,28 +1,33 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "../Pages/About";
-import SignupCard from "./authcom/signup/Signup";
+// import SignupCard from "./authcom/signup/Signup";
 import { Hire } from "../Pages/Hire";
 import Home from '../Pages/Home'
 import { CarLoanPage } from "../Pages/CarLoanPage";
 import {HomeLoanPage} from '../Pages/HomeLoanPage';
 import {GoldLoanPage} from '../Pages/GoldLoanPage';
-import  SignUpModal from './authcom/signup/SignupModal'
-import SignInModal from './authcom/signin/SigninModal'
+import SignupCard from "./authcom/signup/Signup";
+import SigninCard from './authcom/signin/SigninCard'
 import { Game } from "../Pages/Game";
-
-import Home from "../Pages/Home";
 import { Calculator } from "./calculator";
 import Checkoutpage from "../Pages/Checkoutpage";
+import PrivateRoute from "./PrivateRoute";
 
 const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path='/signup' element={<SignUpModal/>} />
-      <Route path='/signin' element={<SignInModal/>}/> 
-      <Route path='/hire' element={<Hire/>} />
+      <Route path='/signup' element={<SignupCard/>} />
+      <Route path='/signin' element={<SigninCard/>}/> 
+      <Route path='/hire' element={
+     
+         <Hire/>
+  
+      
+      
+      } />
       <Route path='/car-loan' element={<CarLoanPage/>} />
       <Route path='/home-loan' element={<HomeLoanPage/>} />
       <Route path='/gold-loan' element={<GoldLoanPage/>} />
