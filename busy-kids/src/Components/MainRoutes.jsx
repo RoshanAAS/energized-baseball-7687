@@ -1,17 +1,20 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "../Pages/About";
-import SignupCard from "./authcom/signup/Signup";
+// import SignupCard from "./authcom/signup/Signup";
 import { Hire } from "../Pages/Hire";
 import Home from '../Pages/Home'
 import { CarLoanPage } from "../Pages/CarLoanPage";
+
 import { HomeLoanPage } from '../Pages/HomeLoanPage';
 import { GoldLoanPage } from '../Pages/GoldLoanPage';
 import SignUpModal from './authcom/signup/SignupModal'
 import SignInModal from './authcom/signin/SigninModal'
+
 import { Game } from "../Pages/Game";
 import { Calculator } from "./calculator";
 import Checkoutpage from "../Pages/Checkoutpage";
+import PrivateRoute from "./PrivateRoute";
 
 const MainRoutes = () => {
   return (
