@@ -1,5 +1,6 @@
-import React, { useCallback } from "react";
-
+import React, { useCallback, useState } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import {
   Heading,
   Avatar,
@@ -12,8 +13,7 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
-import styled from "@emotion/styled";
-import useRazorpay from "react-razorpay";
+import CheckoutModal from "../Pages/Checkoutmodal";
 
 //   description
 // :
@@ -51,47 +51,8 @@ const TeacherCard = ({
   status,
   id,
 }) => {
-  const Razorpay = useRazorpay();
-  const params = {
-    price: 500000,
-    name: name,
-    location,
-  };
-  const createOrder = (params) => {
-    // ...
-    return params;
-  };
-
-  const handlePayment = useCallback(async () => {
-    const order = await createOrder(params);
-    console.log(order);
-    const options = {
-      key: "rzp_test_Sd88VoR9NHci1p",
-      amount: order.price,
-      currency: "INR",
-      name: order.name,
-      description: "Test Transaction",
-      image: "https://example.com/your_logo",
-      order_id: order.id,
-      handler: (res) => {
-        console.log(res);
-      },
-      prefill: {
-        name: "Piyush Garg",
-        email: "youremail@example.com",
-        contact: "9999999999",
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
-
-    const rzpay = new Razorpay(options);
-    rzpay.open();
-  }, [Razorpay]);
+  const navigate = useNavigate();
+  const [statuslocal, setStatus] = useState(true);
   return (
     <DIV>
       <Center py={6}>
@@ -151,10 +112,12 @@ const TeacherCard = ({
               bg={useColorModeValue("#f54f48", "gray.900")}
               color={"white"}
               rounded={"md"}
-              onClick={handlePayment}
               _hover={{
                 transform: "translateY(-2px)",
                 boxShadow: "lg",
+              }}
+              onClick={() => {
+                navigate("/checkout");
               }}
             >
               {status ? "Hired" : "Hire"}

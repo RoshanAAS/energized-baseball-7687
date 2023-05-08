@@ -11,9 +11,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import SignInCard from "./SigninCard";
+// import SignUpCard from "./SignupCard";
 
-export default function SignInModal() {
+import Checkoutpage from "./Checkoutpage";
+
+export default function CheckoutModal({ text }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -31,15 +33,15 @@ export default function SignInModal() {
         as={"b"}
         onClick={onOpen}
       >
-        SignIn
+        Hire
       </Text>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="4xl" bgColor={"gray.400"}>
+      <Modal isOpen={isOpen} onClose={onClose} size="4xl">
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-            <SignInCard />
+            <Checkoutpage />
           </ModalBody>
         </ModalContent>
       </Modal>

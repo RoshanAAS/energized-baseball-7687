@@ -106,9 +106,8 @@ export default function Navbar() {
                             WebkitBorderRadius : '10px'
                         }} /> */}
 
-                        {/*  w={"100%"} h={"59"}  */}
+            {/*  w={"100%"} h={"59"}  */}
             <Image src={Logo} alt="logo" w={"100%"} h={"59"} />
-
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -354,6 +353,7 @@ const NAV_ITEMS = [
     children: [
       {
         label: "Evaluate Gold Loan",
+        href: "",
       },
       {
         label: "Evaluate Home Loan",
@@ -394,9 +394,9 @@ const DIV = styled.div`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
-    position: sticky;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    bottom: 10;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 10;
 `;
