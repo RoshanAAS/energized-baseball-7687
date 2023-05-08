@@ -24,6 +24,7 @@ import { auth } from "../../../config/firebase";
 import { userLogin, userLogout } from "../../../redux/authreducer/action";
 import Googlelogin from "./Googlelogin";
 import Socialmedia from "../../Socialmedia";
+import { useLocation, useNavigate } from "react-router-dom";
 export default function SigninCard() {
   const [emptyInputError, setEmptyInputError] = useState(false);
   const { isAuth, userName } = useSelector((state) => state.authReducer);
@@ -33,6 +34,8 @@ export default function SigninCard() {
   const [loginPass, setLoginPass] = useState("");
   const [load, setLoad] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate=useNavigate()
+  const location=useLocation()
 
   const handleLogin = async () => {
     if (!loginEmail || !loginPass) {
@@ -46,7 +49,10 @@ export default function SigninCard() {
           loginEmail,
           loginPass
         );
-        dispatch(userLogin(res.user.displayName));
+        dispatch(userLogin(res.user.displayName))
+
+
+
         toast({
           title: "Login Successfull",
           description: `welcome, ${res.user.displayName}`,
@@ -67,6 +73,12 @@ export default function SigninCard() {
         setLoad(false);
       }
     }
+
+    if(!isAuth){
+      navigate('/')
+    }
+
+
   };
   return (
     <Flex

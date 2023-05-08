@@ -91,6 +91,7 @@ const TeacherCard = ({
       },
       theme: {
         color: "#f54f48",
+        
       },
     };
 
@@ -154,6 +155,7 @@ const TeacherCard = ({
               mt={8}
               bg={useColorModeValue("#f54f48", "gray.900")}
               color={"white"}
+              border = '0px'
               rounded={"md"}
               _hover={{
                 transform: "translateY(-2px)",
