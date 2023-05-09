@@ -46,11 +46,6 @@ import { updateHire } from "../redux/hireReducer/action";
 const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
     const Razorpay = useRazorpay();
     const params = {
       price: 500000,
@@ -99,6 +94,29 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
         <Center py={6}>
           <Box
             maxW={"250px"}
+
+    const rzpay = new Razorpay(options);
+
+    rzpay.open(dispatch(updateHire({ id, status })));
+
+    
+
+  }, [Razorpay]);
+
+  return (
+    <div>
+      <Center py={6}>
+        <Box
+          maxW={"250px"}
+          w={"full"}
+          bg={useColorModeValue("white", "gray.800")}
+          // boxShadow={"2xl"}
+          // rounded={'md'}
+          overflow={"hidden"}
+        >
+          <Image
+            h={"70px"}
+
             w={"full"}
             bg={useColorModeValue("white", "gray.800")}
             // boxShadow={"2xl"}
@@ -171,11 +189,10 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
 };
 export default TeacherCard;
 
-const DIV = styled.div`
-  @media screen and (max-width: 480px) and (min-width: 200px) {
-    .sidebar {
-      width: 50%;
-      background-color: black;
-    }
-  }
-`;
+
+
+ 
+
+
+
+
