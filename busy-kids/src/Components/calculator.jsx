@@ -17,7 +17,7 @@ export const Calculator = () => {
     setEmi(emi.toFixed(2));
     setInterest(totalInterest.toFixed(2));
   };
-
+//dfgbdnf
   return (
     <div>
       <h1>Loan Calculator</h1>
