@@ -63,12 +63,12 @@ const Footer = () => {
                         <Link href={'#'}>LinkedIn</Link>
                     </Stack>
                     <Stack align={'flex-start'}>
-                        <Text as='b' fontSize={'lg'}>Follow Us</Text>
-                        <Link href={'#'}>Facebook</Link>
-                        <Link href={'#'}>Twitter</Link>
-                        <Link href={'#'}>Dribbble</Link>
-                        <Link href={'#'}>Instagram</Link>
-                        <Link href={'#'}>LinkedIn</Link>
+                        <Text as='b' fontSize={'lg'}>About Us</Text>
+                        <Link href={'#'}>Mission</Link>
+                        <Link href={'#'}>Media</Link>
+                        <Link href={'#'}>Partnerships</Link>
+                        <Link href={'#'}>Advisory Council</Link>
+                        <Link href={'#'}>Contact Us</Link>
                     </Stack>
                 </SimpleGrid>
             </Container>

@@ -13,9 +13,9 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
   useToast,
 } from "@chakra-ui/react";
+import {Link} from 'react-router-dom'
 import { auth } from "../../../config/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -82,7 +82,7 @@ export default function SignupCard() {
             Sign up
           </Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
+            to explore <Link color={"blue.400"}>Us</Link> ✌️
           </Text>
         </Stack>
         <Box
@@ -148,7 +148,10 @@ export default function SignupCard() {
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}>Login</Link>
+                Already a user?{" "}
+                <Link color={"blue.400"} to={"/signin"}>
+                  Login
+                </Link>
               </Text>
             </Stack>
           </Stack>

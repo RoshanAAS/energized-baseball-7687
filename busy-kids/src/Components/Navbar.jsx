@@ -7,7 +7,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -16,6 +15,7 @@ import {
   useDisclosure,
   Image,
 } from "@chakra-ui/react";
+import {Link} from 'react-router-dom'
 import {
   HamburgerIcon,
   CloseIcon,
@@ -25,15 +25,41 @@ import {
 
 import Logo from "../Logo/BusyKids.png";
 import styled from "@emotion/styled";
+import { NavLink } from "react-router-dom";
+import SignInModal from "./authcom/signin/SigninModal";
+import SignUpModal from "./authcom/signup/SignupModal";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../config/firebase";
+import { signOut } from "firebase/auth";
+import { userLogout, userStatusUpdate } from "../redux/authreducer/action";
+import { useEffect } from "react";
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const dispatch = useDispatch();
+  const { isAuth, userName } = useSelector((state) => state.authReducer);
+   
 
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(userStatusUpdate(user.displayName));
+      } else {
+        dispatch(userLogout());
+      }
+    });
+  }, []);
+
+  const handleLogout = async () => {
+    dispatch(userLogout());
+    await signOut(auth);
+  };
   return (
     <DIV>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"40px"}
+        // minH={"40px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         w={"100%"}
@@ -80,7 +106,9 @@ export default function Navbar() {
                             padding : '10px',
                             WebkitBorderRadius : '10px'
                         }} /> */}
-            <Image src={Logo} alt="logo" w={"55%"} h={"auto"} />
+
+            {/*  w={"100%"} h={"59"}  */}
+          <NavLink to={'/'}>  <Image  src={Logo} alt="logo" w={"100%"} h={"59"} /></NavLink>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -88,33 +116,69 @@ export default function Navbar() {
           </Flex>
         </Flex>
 
-        {/* <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={'flex-end'}
-                    direction={'row'}
-                    spacing={6}>
-                    <Button
-                        as={'a'}
-                        fontSize={'sm'}
-                        fontWeight={400}
-                        variant={'link'}
-                        href={'#'}>
-                        Sign In
-                    </Button>
-                    <Button
-                        as={'a'}
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
-                        fontWeight={600}
-                        color={'white'}
-                        bg={'pink.400'}
-                        href={'#'}
-                        _hover={{
-                            bg: 'pink.300',
-                        }}>
-                        Sign Up
-                    </Button>
-                </Stack> */}
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
+          {/* <NavLink to={'/signin'}> */}
+
+          <Button
+            as={"a"}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color={"black"}
+            bg={"none"}
+            href={"#"}
+            _hover={{
+              bg: "#f54f48",
+              color: "white",
+            }}
+          >
+            {isAuth ? <Text>{userName}</Text> : <SignInModal />}
+          </Button>
+
+          {/* </NavLink> */}
+          {/* <NavLink to={"/signup"}> */}
+          {isAuth ? (
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"black"}
+              bg={"none"}
+              href={"#"}
+              _hover={{
+                bg: "#f54f48",
+                color: "white",
+              }}
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
+          ) : (
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"black"}
+              bg={"none"}
+              href={"#"}
+              _hover={{
+                bg: "#f54f48",
+                color: "white",
+              }}
+            >
+              <SignUpModal />
+            </Button>
+          )}
+
+          {/* </NavLink> */}
+        </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -176,7 +240,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
-      href={href}
+      to={href}
       role={"group"}
       display={"block"}
       p={2}
@@ -267,7 +331,7 @@ const MobileNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}
@@ -288,51 +352,69 @@ const NAV_ITEMS = [
   {
     label: "Learn",
     children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
+    {
+      label: "Learn Car Loan",
+      href: "/car-loan",
+    },
+    {
+      label: "Learn Gold Loan",
+      href: "/gold-loan",
+    },
+    {
+      label: "Learn Home Loan",
+      href: "/home-loan",
+    },
     ],
   },
+  
   {
     label: "Tech",
     children: [
       {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
+        label: "Evaluate Gold Loan",
+        href: "",
       },
       {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
+        label: "Evaluate Home Loan",
+      },
+      {
+        label: "New & Noteworthy",
       },
     ],
   },
   {
-    label: "Play",
-    href: "#",
+    label: "Games",
+    children: [
+      {
+        label: "Play Games",
+        href: "/play-game",
+      }
+    ]
   },
   {
-    label: "Resources",
-    href: "#",
+    label: "Team",
+    children: [
+      {
+        label: "Hire",
+        href: "/hire",
+      }
+    ]
   },
   {
     label: "About",
-    href: "#",
+    href: "/car-loan",
   },
 ];
 
 const DIV = styled.div`
   align-items: center;
   width: 100%;
-  /* border: 1px solid red; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 10;
 `;

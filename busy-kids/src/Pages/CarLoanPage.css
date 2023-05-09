@@ -1,0 +1,202 @@
+.car-loan-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+  
+  .car-loan-info {
+    position: relative;
+    width: 45%;
+    margin-left: 5%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    font-weight: 400;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+  .car-loan-info::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/car-loan.webp");
+    opacity: 0.2; 
+    pointer-events: none; 
+  }
+  
+  .car-loan-info h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .car-loan-info p {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .car-loan-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  
+  .car-loan-info li {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .calculator-container {
+    position: relative;
+    width: 45%;
+    margin-left: 5%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-weight: 800;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .calculator-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/car-removebg-preview.png");
+    opacity: 0.2; 
+    pointer-events: none; 
+  }
+  
+  .calculator {
+    position: relative;
+    z-index: 1;
+  }
+
+  .calculator-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .int-loan {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+
+  .int-info{
+    display: flex;
+   width: 100%;
+   justify-content: space-between;
+   margin-left: 30px;
+  }
+
+  .int-fee{
+    display: flex;
+   width: 100%;
+   justify-content: space-between;
+   margin-left: 20px;
+  }
+  
+  .heading {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  
+  .int-loan p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .int-info p{
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .int-fee p{
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+.image-loan{
+  width: 100%;
+  margin-right: -25rem;
+  margin-top: -5rem;
+}
+
+.image-interest{
+  width: 100%;
+  margin-right: -25rem;
+}
+
+.image-fees{
+  width: 100%;
+  margin-right: -55rem;
+ 
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .car-loan-page {
+  flex-direction: column;
+  margin-top: 30px;
+  }
+  
+  .car-loan-info,
+  .calculator-container {
+  width: 90%;
+  margin-left: 5%;
+  }
+  
+  .car-loan-info::before,
+  .calculator-container::before {
+  background-size: 70%;
+  }
+  
+  .calculator-container::before {
+  background-position: top;
+  }
+  
+  .calculator {
+  margin-top: 50px;
+  }
+  
+  .int-loan,
+  .int-info,
+  .int-fee {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0;
+  }
+  
+  .int-loan p,
+  .int-info p,
+  .int-fee p {
+  margin-bottom: 1rem;
+  }
+  
+  .image-loan,
+  .image-interest,
+  .image-fees {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 1rem;
+  }
+  }
