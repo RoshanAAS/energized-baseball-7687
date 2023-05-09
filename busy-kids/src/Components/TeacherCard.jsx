@@ -89,22 +89,9 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
       rzpay.open(dispatch(updateHire({ id, status })));
     }, [Razorpay]);
 
-    return (
-      <DIV>
-        <Center py={6}>
-          <Box
-            maxW={"250px"}
-
-    const rzpay = new Razorpay(options);
-
-    rzpay.open(dispatch(updateHire({ id, status })));
-
-    
-
-  }, [Razorpay]);
 
   return (
-    <div>
+      <Box>
       <Center py={6}>
         <Box
           maxW={"250px"}
@@ -122,7 +109,7 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
             // boxShadow={"2xl"}
             // rounded={'md'}
             overflow={"hidden"}
-          >
+          />
             <Image
               h={"70px"}
               w={"full"}
@@ -183,10 +170,10 @@ const TeacherCard = ({ name, image, rating, role, location, status, id }) => {
             </Box>
           </Box>
         </Center>
-      </DIV>
+        </Box>
     );
   };
-};
+
 export default TeacherCard;
 
 
