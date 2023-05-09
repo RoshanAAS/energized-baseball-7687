@@ -18,6 +18,7 @@ export const Calculator = () => {
     setInterest(totalInterest.toFixed(2));
   };
 //dfgbdnf
+///jksdnckdjc
   return (
     <div>
       <h1>Loan Calculator</h1>
