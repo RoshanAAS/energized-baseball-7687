@@ -23,7 +23,7 @@ const TeacherList = () => {
        location:searchParams.getAll('loaction'),
        _sort:searchParams.get('sort') && 'rating',
        _order:searchParams.get('sort'),
-       _limit:15,
+       _limit:16,
        _page:searchParams.get('page')
       },
     };
@@ -49,7 +49,7 @@ const TeacherList = () => {
   ) : (
 
      <Box> 
-    <SimpleGrid style={{margin:'auto'}} columns={{ sm: 2, md: 3, lg: 5, base: 1 }} spacing="8px">
+    <SimpleGrid style={{margin:'auto'}} columns={{ sm: 2, md: 3, lg: 4, base: 1 }} spacing="8px">
       {data.map((item) => {
         return <TeacherCard key={item.id} {...item} />;
       })}

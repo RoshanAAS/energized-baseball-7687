@@ -5,15 +5,15 @@ const Pagination = ({page,setpage}) => {
 
    const button= new Array(100/20).fill('')
   return (
-    <Box>
-    <Stack direction={["row"]}>
+    <Box >
+  
         {
            button.map((_,i)=>{
-            return <Button disabled={page===1}  onClick={()=> setpage(i+1) } >{i+1}</Button>
+            return <Button margin={1} disabled={page===1}  onClick={()=> setpage(i+1) } >{i+1}</Button>
            }) 
         }
         
-    </Stack>
+  
     </Box>
   )
 }
